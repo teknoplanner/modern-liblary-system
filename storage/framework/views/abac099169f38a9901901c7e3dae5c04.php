@@ -1,38 +1,43 @@
 <?php $__env->startSection('content'); ?>
-<div class="max-w-2xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom duration-500">
-    <div class="space-y-1">
-        <h1 class="text-3xl font-bold tracking-tight text-gray-900">Add New Book</h1>
-        <p class="text-sm text-gray-500 leading-relaxed max-w-lg">Fill in the details below to add a new book to the library collection.</p>
+<div class="max-w-3xl mx-auto space-y-12 py-10 animate-in fade-in slide-in-from-bottom duration-700">
+    <div class="space-y-3">
+        <div class="flex items-center gap-2 mb-1">
+            <span class="w-8 h-1 bg-cyan-600 rounded-full"></span>
+            <span class="text-[11px] font-black uppercase tracking-[0.3em] text-cyan-600">Manajemen Inventaris</span>
+        </div>
+        <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">Registrasi <span class="text-cyan-600">Buku Baru</span></h1>
+        <p class="text-slate-500 font-medium max-w-lg">Pastikan data yang dimasukkan sesuai dengan standar katalogisasi perpustakaan.</p>
     </div>
 
-    <form action="/books" method="POST" class="bg-white p-8 rounded-3xl shadow-xl shadow-gray-100 border border-gray-100 space-y-6">
+    <form action="/books" method="POST" class="bg-white p-12 rounded-[3.5rem] shadow-[0_48px_96px_-24px_rgba(0,0,0,0.06)] border border-slate-50 space-y-10 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cyan-500 to-cyan-300 opacity-20"></div>
         <?php echo csrf_field(); ?>
-        <div class="grid grid-cols-1 gap-6">
-            <div class="space-y-2 group">
-                <label for="title" class="text-sm font-semibold text-gray-700 ml-1">Book Title</label>
-                <input type="text" name="title" id="title" required placeholder="Enter book title"
-                    class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-4 focus:ring-indigo-50 focus:border-indigo-500 hover:border-gray-300 transition-all placeholder:text-gray-400">
+        <div class="grid grid-cols-1 gap-10">
+            <div class="space-y-3 group">
+                <label for="title" class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Judul Lengkap Koleksi</label>
+                <input type="text" name="title" id="title" required placeholder="Contoh: Laskar Pelangi - Edisi Spesial"
+                    class="w-full px-8 py-5 bg-slate-50 border border-slate-100 rounded-3xl focus:ring-4 focus:ring-cyan-50 focus:border-cyan-600 focus:bg-white transition-all text-sm font-bold text-slate-700 placeholder:text-slate-300 outline-none">
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="space-y-2">
-                    <label for="isbn" class="text-sm font-semibold text-gray-700 ml-1">ISBN Number</label>
-                    <input type="text" name="isbn" id="isbn" required placeholder="978-3-16-148410-0"
-                        class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-4 focus:ring-indigo-50 focus:border-indigo-500 hover:border-gray-300 transition-all placeholder:text-gray-400">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="space-y-3">
+                    <label for="isbn" class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Nomor ISBN Terdaftar</label>
+                    <input type="text" name="isbn" id="isbn" required placeholder="978-X-XXX-XXXXX-X"
+                        class="w-full px-8 py-5 bg-slate-50 border border-slate-100 rounded-3xl focus:ring-4 focus:ring-cyan-50 focus:border-cyan-600 focus:bg-white transition-all text-sm font-bold text-slate-700 placeholder:text-slate-300 outline-none">
                 </div>
 
-                <div class="space-y-2">
-                    <label for="stock" class="text-sm font-semibold text-gray-700 ml-1">Stock Quantity</label>
+                <div class="space-y-3">
+                    <label for="stock" class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Jumlah Unit Tersedia</label>
                     <input type="number" name="stock" id="stock" required min="0" value="1"
-                        class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-4 focus:ring-indigo-50 focus:border-indigo-500 hover:border-gray-300 transition-all placeholder:text-gray-400">
+                        class="w-full px-8 py-5 bg-slate-50 border border-slate-100 rounded-3xl focus:ring-4 focus:ring-cyan-50 focus:border-cyan-600 focus:bg-white transition-all text-sm font-bold text-slate-700 placeholder:text-slate-300 outline-none">
                 </div>
             </div>
         </div>
 
-        <div class="pt-4 flex items-center justify-end gap-3 border-t border-gray-100">
-            <a href="/books" class="px-6 py-2.5 text-sm font-semibold text-gray-500 hover:text-gray-700 transition-colors">Cancel</a>
-            <button type="submit" class="px-8 py-3 bg-indigo-600 text-white text-sm font-bold rounded-2xl hover:bg-indigo-700 shadow-xl shadow-indigo-100 hover:scale-[1.02] active:scale-95 transition-all">
-                Save Book Data
+        <div class="pt-10 flex flex-col md:flex-row items-center justify-end gap-6 border-t border-slate-50">
+            <a href="/books" class="text-xs font-black text-slate-400 uppercase tracking-[0.2em] hover:text-rose-500 transition-colors">Batalkan & Kembali</a>
+            <button type="submit" class="w-full md:w-auto px-12 py-5 bg-slate-900 text-white text-xs font-black rounded-2xl shadow-2xl shadow-slate-200 hover:bg-cyan-600 hover:shadow-cyan-100 transition-all active:scale-[0.98] uppercase tracking-[0.3em]">
+                Simpan Data Koleksi
             </button>
         </div>
     </form>
