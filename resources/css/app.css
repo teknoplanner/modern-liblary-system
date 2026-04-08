@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] { display: none !important; }
+
+body {
+    @apply antialiased bg-slate-50 text-slate-900;
+}
